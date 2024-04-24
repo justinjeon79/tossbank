@@ -1,11 +1,11 @@
 env:
-    SYSDIG_SECURE_ENDPOINT: "https://us2.app.sysdig.com"
+    SYSDIG_SECURE_ENDPOINT: "https://sysdig.poctest1.click"
     REGISTRY_HOST: "quay.io"
-    IMAGE_NAME: "mytestimage"
-    IMAGE_TAG: "dddstg-tag"
+    IMAGE_NAME: "cncf_ci"
+    IMAGE_TAG: "cncf-tag"
     DOCKERFILE_CONTEXT: "."
-    AWS_REGION: ap-northeast-2                  # set this to your preferred AWS region, e.g. us-west-1
-    ECR_REPOSITORY: github                       # set this to your Amazon ECR repository name
+    AWS_REGION: ap-northeast-2                   # set this to your preferred AWS region, e.g. us-west-1
+    ECR_REPOSITORY: cs_cncf-ecr                   # set this to your Amazon ECR repository name
 
   
 name: Container build, scan and push
@@ -67,6 +67,7 @@ jobs:
           --console-log \
           --dbpath=${GITHUB_WORKSPACE}/cache/db/ \
           --cachepath=${GITHUB_WORKSPACE}/cache/scanner-cache/
+          
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -93,3 +94,4 @@ jobs:
         
     - name: Checkout
       uses: actions/checkout@v2
+Update cncf.yml · justinjeon79/CNCF@2e6da74
