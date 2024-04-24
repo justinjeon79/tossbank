@@ -56,17 +56,19 @@ jobs:
         SECURE_API_TOKEN: ${{ secrets.SECURE_API_TOKEN }}
       run: | 
           echo " SECURE_API_TOKEN=${{ secrets.SECURE_API_TOKEN }} ${GITHUB_WORKSPACE}/cache/sysdig-cli-scanner \
+          --skiptlsverify true \
           --apiurl ${SYSDIG_SECURE_ENDPOINT} \
           docker://${REGISTRY_HOST}/${{ secrets.REGISTRY_USER }}/${IMAGE_NAME}:${IMAGE_TAG} \
           --console-log \
           --dbpath=${GITHUB_WORKSPACE}/cache/db/ \
           --cachepath=${GITHUB_WORKSPACE}/cache/scanner-cache/"
           SECURE_API_TOKEN=${{ secrets.SECURE_API_TOKEN }} ${GITHUB_WORKSPACE}/cache/sysdig-cli-scanner \
+          --skiptlsverify true \
           --apiurl ${SYSDIG_SECURE_ENDPOINT} \
           docker://${REGISTRY_HOST}/${{ secrets.REGISTRY_USER }}/${IMAGE_NAME}:${IMAGE_TAG} \
           --console-log \
           --dbpath=${GITHUB_WORKSPACE}/cache/db/ \
-          --cachepath=${GITHUB_WORKSPACE}/cache/scanner-cache/
+          --cachepath=${GITHUB_WORKSPACE}/cache/scanner-cache/ \
           
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
