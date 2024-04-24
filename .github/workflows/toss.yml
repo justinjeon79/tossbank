@@ -1,8 +1,8 @@
 env:
     SYSDIG_SECURE_ENDPOINT: "https://sysdig.poctest1.click"
-    REGISTRY_HOST: "quay.io"
-    IMAGE_NAME: "mytestimage"
-    IMAGE_TAG: "dddstg-tag"
+    REGISTRY_HOST: "docker.io"
+    IMAGE_NAME: "alpine"
+    IMAGE_TAG: "latest"
     DOCKERFILE_CONTEXT: "."
     AWS_REGION: ap-northeast-2                   # set this to your preferred AWS region, e.g. us-west-1
     ECR_REPOSITORY: tosspoc                   # set this to your Amazon ECR repository name
