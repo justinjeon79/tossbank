@@ -94,4 +94,3 @@ jobs:
         
     - name: Checkout
       uses: actions/checkout@v2
-Update cncf.yml · justinjeon79/CNCF@2e6da74
